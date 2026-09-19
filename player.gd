@@ -1,11 +1,11 @@
 extends CharacterBody2D
 var xsp :float = 0
 var ysp :float = 0
-var gravity := 70
-var speed :float =300
+var gravity :=  5000
+var speed :float =30000
 var jump_tick_max :=20
 var jump_tick := 0
-var jump_power :float = 1000
+var jump_power :float = 100000
 var can_get_jump_power :bool = true
 
 # Called when the node enters the scene tree for the first time.
@@ -34,6 +34,6 @@ func _process(delta: float) -> void:
 	#calculates x movement
 	xsp=(int(Input.is_action_pressed("right"))-int(Input.is_action_pressed("left")))*speed
 	#godot defult characterbody2d velocity - applies delta automaticly and doesnt let the player go through staticbody2d nodes
-	velocity = Vector2(xsp,ysp)
+	velocity = Vector2(xsp,ysp) *delta
 	move_and_slide()
 	
