@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dl37koynl3tgb"]
 
+[ext_resource type="Texture2D" uid="uid://dwr3i3qgi6544" path="res://icon.svg" id="1_qyha7"]
+
 [node name="bar" type="Control" unique_id=1870118985]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +9,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1864290478]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 1
+offset_right = 847.0
+offset_bottom = 128.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=2102291195]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+texture = ExtResource("1_qyha7")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=1766162847]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+texture = ExtResource("1_qyha7")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" unique_id=1486592525]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+texture = ExtResource("1_qyha7")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer" unique_id=419560794]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+texture = ExtResource("1_qyha7")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer" unique_id=1343917269]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+texture = ExtResource("1_qyha7")
+expand_mode = 1
