@@ -5,7 +5,7 @@ var gravity :=  5000
 var speed :float =30000
 var jump_tick_max :=0.2
 var jump_tick :float = 0
-var jump_power :float = 100000
+var jump_power :float = 700
 var can_get_jump_power :bool = true
 
 # Called when the node enters the scene tree for the first time.
@@ -30,10 +30,10 @@ func _process(delta: float) -> void:
 	elif not (Input.is_action_pressed("jump") and can_get_jump_power):
 		can_get_jump_power=false
 	#applies gravity
-	ysp+=gravity
+	ysp+=gravity*delta
 	#calculates x movement
-	xsp=(int(Input.is_action_pressed("right"))-int(Input.is_action_pressed("left")))*speed
+	xsp=(int(Input.is_action_pressed("right"))-int(Input.is_action_pressed("left")))*speed*delta
 	#godot defult characterbody2d velocity - applies delta automaticly and doesnt let the player go through staticbody2d nodes
-	velocity = Vector2(xsp*delta,ysp*delta)
+	velocity = Vector2(xsp,ysp)
 	move_and_slide()
 	
