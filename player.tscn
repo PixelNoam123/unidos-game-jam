@@ -1,16 +1,18 @@
 [gd_scene format=3 uid="uid://bfikmd8ewsv5s"]
 
 [ext_resource type="Script" uid="uid://o1dt83lw2ubn" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://dwr3i3qgi6544" path="res://icon.svg" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dykdkubvg7cf2" path="res://glibby-0003.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(110, 109)
+size = Vector2(62, 59.5)
 
 [node name="player" type="CharacterBody2D" unique_id=409760574]
+scale = Vector2(1.3700325, 1.3700325)
 script = ExtResource("1_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2137735223]
-texture = ExtResource("2_i3pqv")
+scale = Vector2(1.1132811, 1.0589749)
+texture = ExtResource("2_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=538692817]
 shape = SubResource("RectangleShape2D_hqtel")
