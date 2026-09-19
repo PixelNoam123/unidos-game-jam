@@ -1,52 +1,96 @@
 [gd_scene format=3 uid="uid://dl37koynl3tgb"]
 
+[ext_resource type="Script" uid="uid://27km1hutkwfe" path="res://bar.gd" id="1_d4kci"]
 [ext_resource type="Texture2D" uid="uid://dwr3i3qgi6544" path="res://icon.svg" id="1_qyha7"]
+[ext_resource type="Texture2D" uid="uid://dpf5vmfrj40wm" path="res://candy-0002.png" id="2_a0eh7"]
+[ext_resource type="Texture2D" uid="uid://bj7qdb7oy15gu" path="res://pickle-0004.png" id="3_d4kci"]
 
 [node name="bar" type="Control" unique_id=1870118985]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -65.0
+offset_bottom = -65.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+script = ExtResource("1_d4kci")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1864290478]
 custom_minimum_size = Vector2(10, 0)
+layout_direction = 4
 layout_mode = 1
-offset_right = 847.0
-offset_bottom = 128.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -471.5
+offset_right = 471.5
+offset_bottom = 61.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=2102291195]
+[node name="sweet" type="TextureRect" parent="HBoxContainer" unique_id=2102291195]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.2
 texture = ExtResource("1_qyha7")
 expand_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=1766162847]
+[node name="sour" type="TextureRect" parent="HBoxContainer" unique_id=1766162847]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.2
 texture = ExtResource("1_qyha7")
 expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" unique_id=1486592525]
+[node name="salty" type="TextureRect" parent="HBoxContainer" unique_id=1486592525]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.2
+size_flags_stretch_ratio = 0.0
 texture = ExtResource("1_qyha7")
 expand_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="HBoxContainer" unique_id=419560794]
+[node name="spicy" type="TextureRect" parent="HBoxContainer" unique_id=419560794]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.2
+size_flags_stretch_ratio = 0.0
 texture = ExtResource("1_qyha7")
 expand_mode = 1
 
-[node name="TextureRect5" type="TextureRect" parent="HBoxContainer" unique_id=1343917269]
+[node name="bitter" type="TextureRect" parent="HBoxContainer" unique_id=1343917269]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.2
+size_flags_stretch_ratio = 0.0
 texture = ExtResource("1_qyha7")
 expand_mode = 1
+
+[node name="Panel" type="Panel" parent="HBoxContainer" unique_id=1733600000]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1971197970]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 1
+offset_left = 107.0
+offset_top = -65.0
+offset_right = 1050.0
+offset_bottom = -4.0
+theme_override_constants/separation = 70
+
+[node name="sour_button" type="Button" parent="HBoxContainer2" unique_id=1663767427]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3_d4kci")
+icon_alignment = 1
+expand_icon = true
+
+[node name="sweet_button" type="Button" parent="HBoxContainer2" unique_id=637507810]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("2_a0eh7")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="HBoxContainer2/sour_button" to="." method="_on_sour_button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/sweet_button" to="." method="_on_sweet_button_pressed"]
