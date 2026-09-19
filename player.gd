@@ -6,12 +6,14 @@ var speed :float = 100
 var jump_power :float = 1000
 var can_get_jump_power :bool = true
 var friction :float = 0.7
+var last_x:float
+var num = 0
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	last_x=position.x
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,3 +37,10 @@ func _process(delta: float) -> void:
 	#godot defult characterbody2d velocity - applies delta automaticly and doesnt let the player go through staticbody2d nodes
 	velocity = Vector2(xsp,ysp)
 	move_and_slide()
+	num+=1*delta
+	if num>=1:
+		print(abs(position.x-last_x))
+		last_x=position.x
+		num=0
+		
+		
