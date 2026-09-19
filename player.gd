@@ -34,6 +34,6 @@ func _process(delta: float) -> void:
 	#calculates x movement
 	xsp=(int(Input.is_action_pressed("right"))-int(Input.is_action_pressed("left")))*speed
 	#godot defult characterbody2d velocity - applies delta automaticly and doesnt let the player go through staticbody2d nodes
-	velocity = Vector2(xsp,ysp) *delta
+	velocity = Vector2(xsp*delta,ysp*delta)
 	move_and_slide()
 	
