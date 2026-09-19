@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	if is_on_floor():
 		ysp=0
 		if Input.is_action_pressed("jump"):
-			ysp = -jump_power
+			ysp = -jump_power * PlayerVariables.sour_prec * 1.5
 	if is_on_ceiling():
 		ysp=0
 	#as long as you keep holding jump and you dont reach the limit the jump power keeps getting apllied
