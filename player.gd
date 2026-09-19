@@ -1,9 +1,9 @@
 extends CharacterBody2D
 var xsp :float = 0
 var ysp :float = 0
-var gravity :=  5000
-var speed :float =30000
-var jump_power :float = 170000
+var gravity :=  500000
+var speed :float =3000000
+var jump_power :float = 200000
 var can_get_jump_power :bool = true
 
 
@@ -28,9 +28,10 @@ func _process(delta: float) -> void:
 	
 		
 	#applies gravity
-	ysp+=gravity
+	ysp+=gravity*delta
 	#calculates x movement
-	xsp=(int(Input.is_action_pressed("right"))-int(Input.is_action_pressed("left")))*speed
+	xsp=(int(Input.is_action_pressed("right"))-int(Input.is_action_pressed("left")))*speed*delta
 	#godot defult characterbody2d velocity - applies delta automaticly and doesnt let the player go through staticbody2d nodes
-	velocity = Vector2(xsp,ysp)
+	velocity = Vector2(xsp,ysp)*delta
 	move_and_slide()
+	print(delta)
