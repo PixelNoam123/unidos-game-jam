@@ -14,6 +14,21 @@ config/name="unidos game jam project"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[input]
+
+right={
+"deadzone": 0.2,
+"events": []
+}
+left={
+"deadzone": 0.2,
+"events": []
+}
+jump={
+"deadzone": 0.2,
+"events": []
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
