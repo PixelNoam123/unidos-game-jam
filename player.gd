@@ -1,35 +1,36 @@
 extends CharacterBody2D
-
-# --- Movement Constants ---
-@export var SPEED : float = 300.0
-@export var JUMP_VELOCITY : float = -400.0
-@export var ACCELERATION : float = 20.0
-@export var DECELERATION : float = 25.0
-
-# --- Get Gravity from Project Settings ---
-# This ensures it syncs up with Godot's built-in physics engine.
-var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+var xsp :float = 0
+var ysp :float = 0
+var gravity :=  500000
+var speed :float =30000
+var jump_power :float = 200000
+var can_get_jump_power :bool = true
 
 
-func _physics_process(delta: float) -> void:
-	# 1. Apply Gravity
-	if not is_on_floor():
-		velocity.y += gravity * delta
 
-	# 2. Handle Jump Input
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
-	# 3. Get Input Direction (-1 for left, 1 for right, 0 for idle)
-	var direction := Input.get_axis("ui_left", "ui_right")
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+
+	#if one floor all the jumping things reset
+	if is_on_floor():
+		ysp=0
+		if Input.is_action_pressed("jump"):
+			ysp=-jump_power
+	if is_on_ceiling():
+		ysp=0
+	#as long as you keep holding jump and you dont reach the limit the jump power keeps getting apllied
 	
-	# 4. Handle Horizontal Movement & Smooth Interp (Lerp)
-	if direction != 0:
-		# Accelerate towards the input direction
-		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)
-	else:
-		# Decelerate smoothly to a full stop
-		velocity.x = move_toward(velocity.x, 0, DECELERATION)
-
-	# 5. Execute Movement and Handle Collisions
+		
+	#applies gravity
+	ysp+=gravity*delta
+	#calculates x movement
+	xsp=(int(Input.is_action_pressed("right"))-int(Input.is_action_pressed("left")))*speed
+	#godot defult characterbody2d velocity - applies delta automaticly and doesnt let the player go through staticbody2d nodes
+	velocity = Vector2(xsp,ysp)*delta
 	move_and_slide()
