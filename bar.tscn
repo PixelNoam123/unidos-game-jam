@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://27km1hutkwfe" path="res://bar.gd" id="1_d4kci"]
 [ext_resource type="Texture2D" uid="uid://dwr3i3qgi6544" path="res://icon.svg" id="1_qyha7"]
 [ext_resource type="Texture2D" uid="uid://dpf5vmfrj40wm" path="res://candy-0002.png" id="2_a0eh7"]
+[ext_resource type="Texture2D" uid="uid://c3antbf6asigp" path="res://Spritewithcolor-0006.png" id="2_sm06w"]
 [ext_resource type="Texture2D" uid="uid://bj7qdb7oy15gu" path="res://pickle-0004.png" id="3_d4kci"]
+[ext_resource type="Texture2D" uid="uid://dtc83oq3j2flo" path="res://Spritewithcolor-0007.png" id="3_fhoit"]
 
 [node name="bar" type="Control" unique_id=1870118985]
 layout_mode = 3
@@ -34,13 +36,13 @@ theme_override_constants/separation = 0
 [node name="sweet" type="TextureRect" parent="HBoxContainer" unique_id=2102291195]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("1_qyha7")
+texture = ExtResource("2_sm06w")
 expand_mode = 1
 
 [node name="sour" type="TextureRect" parent="HBoxContainer" unique_id=1766162847]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("1_qyha7")
+texture = ExtResource("3_fhoit")
 expand_mode = 1
 
 [node name="salty" type="TextureRect" parent="HBoxContainer" unique_id=1486592525]
