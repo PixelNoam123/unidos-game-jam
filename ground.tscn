@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ivuqrcaavt7v"]
 
-[ext_resource type="Texture2D" uid="uid://dwr3i3qgi6544" path="res://icon.svg" id="1_yh8r4"]
+[ext_resource type="Texture2D" uid="uid://cj20f4yxdt7sv" path="res://grassfloor-0008.png" id="1_yh8r4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lv0v5"]
-size = Vector2(139, 127)
+size = Vector2(212.28633, 127)
 
 [node name="ground" type="StaticBody2D" unique_id=1213071244]
 
@@ -11,4 +11,6 @@ size = Vector2(139, 127)
 texture = ExtResource("1_yh8r4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=827159617]
+position = Vector2(-1.4999943, 0)
+scale = Vector2(1.1823654, 0.26005733)
 shape = SubResource("RectangleShape2D_lv0v5")

@@ -1,7 +1,7 @@
 extends Node
 
-var sour_prec
-var sweet_prec
+var sour_prec :float = 0
+var sweet_prec :float =0
 
 
 # Called when the node enters the scene tree for the first time.

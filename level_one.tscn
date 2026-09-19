@@ -9,17 +9,13 @@
 [node name="player" parent="." unique_id=409760574 instance=ExtResource("2_foyw7")]
 position = Vector2(99, 161)
 
-[node name="ground" parent="." unique_id=1213071244 instance=ExtResource("3_foyw7")]
-position = Vector2(236, 620)
-scale = Vector2(21.44, 1)
-
-[node name="ground2" parent="." unique_id=1445410005 instance=ExtResource("3_foyw7")]
-position = Vector2(388, 416)
-scale = Vector2(-2.0143416, 0.58291215)
-
 [node name="bar" parent="." unique_id=1870118985 instance=ExtResource("1_bo08i")]
 offset_left = 403.0
 offset_top = 435.0
 offset_right = 403.0
 offset_bottom = 435.0
 scale = Vector2(0.6399988, 1)
+
+[node name="ground" parent="bar" unique_id=1213071244 instance=ExtResource("3_foyw7")]
+position = Vector2(300.00055, 169)
+scale = Vector2(8.395229, -2.5314138)
