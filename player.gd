@@ -3,8 +3,8 @@ var xsp :float = 0
 var ysp :float = 0
 var gravity :=  5000
 var speed :float =30000
-var jump_tick_max :=20
-var jump_tick := 0
+var jump_tick_max :=0.2
+var jump_tick :float = 0
 var jump_power :float = 100000
 var can_get_jump_power :bool = true
 
@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	#as long as you keep holding jump and you dont reach the limit the jump power keeps getting apllied
 	if Input.is_action_pressed("jump") and can_get_jump_power:
 		ysp=-jump_power
-		jump_tick+=1
+		jump_tick+=1*delta
 		if jump_tick>=jump_tick_max:
 			can_get_jump_power=false
 	#sets when the jump holding finishes
