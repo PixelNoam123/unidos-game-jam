@@ -14,3 +14,7 @@ position = Vector2(99, 161)
 [node name="ground" parent="." unique_id=1213071244 instance=ExtResource("3_foyw7")]
 position = Vector2(236, 620)
 scale = Vector2(21.44, 1)
+
+[node name="ground2" parent="." unique_id=1445410005 instance=ExtResource("3_foyw7")]
+position = Vector2(388, 415)
+scale = Vector2(-2.0143416, 0.58291215)
