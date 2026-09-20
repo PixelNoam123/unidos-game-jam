@@ -22,8 +22,8 @@ func _process(delta: float) -> void:
 		$HBoxContainer/Panel.size_flags_stretch_ratio=0
 		PlayerVariables.sweet_prec = str(taste_list).count("sweet") / float(len(taste_list))
 		PlayerVariables.sour_prec = str(taste_list).count("sour") / float(len(taste_list))
-		visible_sweet_prec += PlayerVariables.sweet_prec - visible_sweet_prec * 1.5 * delta
-		visible_sour_prec += PlayerVariables.sour_prec - visible_sour_prec * 1.5 * delta
+		visible_sweet_prec += PlayerVariables.sweet_prec - visible_sweet_prec * 2 * delta
+		visible_sour_prec += PlayerVariables.sour_prec - visible_sour_prec * 2 * delta
 		$HBoxContainer/sweet.size_flags_stretch_ratio=visible_sweet_prec
 		$HBoxContainer/sour.size_flags_stretch_ratio=visible_sour_prec
 		
