@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://o1dt83lw2ubn" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Shader" uid="uid://cjsc838sbi6y8" path="res://player.gdshader" id="2_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://dykdkubvg7cf2" path="res://glibby-0003.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://66tm5c1p3fl7" path="res://glibby-0003.png" id="2_onrkg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xg20y"]
 shader = ExtResource("2_i3pqv")
