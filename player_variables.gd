@@ -2,13 +2,7 @@ extends Node
 
 var sour_prec :float = 0
 var sweet_prec :float =0
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var spicy_prec :float =0
+var bitter_prec :float =0
+var salty_prec :float =0
+var umame_prec :float =0

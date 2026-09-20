@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj20f4yxdt7sv"
-path="res://.godot/imported/grassfloor-0008.png-416c7756d26ec84300abccedb18c8180.ctex"
+uid="uid://b56b7grgpr25k"
+path="res://.godot/imported/pretzel-0002.png-1eacc77e4fec5c760dc9bdb38d91ba79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grassfloor-0008.png"
-dest_files=["res://.godot/imported/grassfloor-0008.png-416c7756d26ec84300abccedb18c8180.ctex"]
+source_file="res://pretzel-0002.png"
+dest_files=["res://.godot/imported/pretzel-0002.png-1eacc77e4fec5c760dc9bdb38d91ba79.ctex"]
 
 [params]
 
