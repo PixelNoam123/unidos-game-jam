@@ -18,7 +18,7 @@ func set_glibby_color():
 	var avg_green = (sweet_color.g*PlayerVariables.sweet_prec) + (sour_color.g*PlayerVariables.sour_prec)
 	var avg_blue = (sweet_color.b*PlayerVariables.sweet_prec) + (sour_color.b*PlayerVariables.sour_prec)
 	var main_color = Color(avg_red,avg_green,avg_blue)
-	var shadow_color = Color(avg_red-40,avg_green-40,avg_blue-40)
+	var shadow_color = Color(avg_red-0.15,avg_green-0.15,avg_blue-0.15)
 	var img: Image = texture.get_image()
 	for y in range(img.get_height()):
 		for x in range(img.get_width()):
