@@ -1,11 +1,19 @@
 [gd_scene format=3 uid="uid://dl37koynl3tgb"]
 
 [ext_resource type="Script" uid="uid://27km1hutkwfe" path="res://bar.gd" id="1_d4kci"]
-[ext_resource type="Texture2D" uid="uid://dwr3i3qgi6544" path="res://icon.svg" id="1_qyha7"]
 [ext_resource type="Texture2D" uid="uid://dpf5vmfrj40wm" path="res://candy-0002.png" id="2_a0eh7"]
 [ext_resource type="Texture2D" uid="uid://c3antbf6asigp" path="res://Spritewithcolor-0006.png" id="2_sm06w"]
-[ext_resource type="Texture2D" uid="uid://bj7qdb7oy15gu" path="res://pickle-0004.png" id="3_d4kci"]
 [ext_resource type="Texture2D" uid="uid://dtc83oq3j2flo" path="res://Spritewithcolor-0007.png" id="3_fhoit"]
+[ext_resource type="Texture2D" uid="uid://bec086m0puirm" path="res://Spritewithcolor-0009.png" id="4_jcdxj"]
+[ext_resource type="Texture2D" uid="uid://cepadk5k0gibu" path="res://lemon-0007.png" id="5_d3clh"]
+[ext_resource type="Texture2D" uid="uid://chho5jsor6fds" path="res://Spritewithcolor-0008.png" id="5_dxdbn"]
+[ext_resource type="Texture2D" uid="uid://8adf46ipvaud" path="res://Spritewithcolor-0011.png" id="6_6e3eu"]
+[ext_resource type="Texture2D" uid="uid://crabekxt2kgjx" path="res://jalapeno.png" id="7_84vuo"]
+[ext_resource type="Texture2D" uid="uid://w4sm1q0jj6xb" path="res://Spritewithcolor-0010.png" id="7_sk2gl"]
+[ext_resource type="Texture2D" uid="uid://buqmcs0ttws1d" path="res://coffee-0001.png" id="8_5pmlc"]
+[ext_resource type="Texture2D" uid="uid://b56b7grgpr25k" path="res://pretzel-0002.png" id="9_tglx6"]
+[ext_resource type="Texture2D" uid="uid://c7ah7js8042km" path="res://shroom-0001.png" id="10_84vuo"]
+[ext_resource type="Texture2D" uid="uid://66tm5c1p3fl7" path="res://glibby-0003.png" id="10_jcdxj"]
 
 [node name="bar" type="Control" unique_id=1870118985]
 layout_mode = 3
@@ -33,56 +41,65 @@ grow_horizontal = 2
 layout_direction = 4
 theme_override_constants/separation = 0
 
-[node name="sweet" type="TextureRect" parent="HBoxContainer" unique_id=2102291195]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("2_sm06w")
-expand_mode = 1
-
 [node name="sour" type="TextureRect" parent="HBoxContainer" unique_id=1766162847]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_fhoit")
 expand_mode = 1
 
-[node name="salty" type="TextureRect" parent="HBoxContainer" unique_id=1486592525]
+[node name="sweet" type="TextureRect" parent="HBoxContainer" unique_id=2102291195]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
-texture = ExtResource("1_qyha7")
+texture = ExtResource("2_sm06w")
 expand_mode = 1
 
 [node name="spicy" type="TextureRect" parent="HBoxContainer" unique_id=419560794]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
-texture = ExtResource("1_qyha7")
-expand_mode = 1
-
-[node name="bitter" type="TextureRect" parent="HBoxContainer" unique_id=1343917269]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
-texture = ExtResource("1_qyha7")
+texture = ExtResource("5_dxdbn")
 expand_mode = 1
 
 [node name="Panel" type="Panel" parent="HBoxContainer" unique_id=1733600000]
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="bitter" type="TextureRect" parent="HBoxContainer" unique_id=1343917269]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_6e3eu")
+expand_mode = 1
+
+[node name="salty" type="TextureRect" parent="HBoxContainer" unique_id=1486592525]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_jcdxj")
+expand_mode = 1
+
+[node name="umame" type="TextureRect" parent="HBoxContainer" unique_id=772882792]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_sk2gl")
+expand_mode = 1
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1971197970]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 1
-offset_left = 107.0
-offset_top = -65.0
-offset_right = 1050.0
-offset_bottom = -4.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -471.5
+offset_top = -61.0
+offset_right = 471.5
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_constants/separation = 70
 
 [node name="sour_button" type="Button" parent="HBoxContainer2" unique_id=1663767427]
 layout_mode = 2
 size_flags_horizontal = 3
-icon = ExtResource("3_d4kci")
+icon = ExtResource("5_d3clh")
 icon_alignment = 1
 expand_icon = true
 
@@ -94,5 +111,50 @@ icon = ExtResource("2_a0eh7")
 icon_alignment = 1
 expand_icon = true
 
+[node name="spicy_button" type="Button" parent="HBoxContainer2" unique_id=1497613165]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("7_84vuo")
+icon_alignment = 1
+expand_icon = true
+
+[node name="reset_button" type="Button" parent="HBoxContainer2" unique_id=1043753218]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("10_jcdxj")
+icon_alignment = 1
+expand_icon = true
+
+[node name="bitter_button" type="Button" parent="HBoxContainer2" unique_id=1754565558]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("8_5pmlc")
+icon_alignment = 1
+expand_icon = true
+
+[node name="salty_button" type="Button" parent="HBoxContainer2" unique_id=1478158792]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("9_tglx6")
+icon_alignment = 1
+expand_icon = true
+
+[node name="umame_button" type="Button" parent="HBoxContainer2" unique_id=726923541]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("10_84vuo")
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="pressed" from="HBoxContainer2/sour_button" to="." method="_on_sour_button_pressed"]
 [connection signal="pressed" from="HBoxContainer2/sweet_button" to="." method="_on_sweet_button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/spicy_button" to="." method="_on_spicy_button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/reset_button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/bitter_button" to="." method="_on_bitter_button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/salty_button" to="." method="_on_salty_button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/umame_button" to="." method="_on_umame_button_pressed"]
