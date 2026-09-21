@@ -10,8 +10,10 @@ var last_x:float
 var texture=load("res://glibby-0003.png")
 var sweet_color=Color.from_rgba8(174,101,151)
 var sour_color=Color.from_rgba8(182,176,57)
-var half_width = DisplayServer.window_get_size().x / 2.0
+var screen_width = DisplayServer.window_get_size().x
+var screen_height = DisplayServer.window_get_size().y
 var tilemap_x = 0
+var tilemap_y = 0
 var spawnVector = Vector2(400,200)
 
 
@@ -32,6 +34,8 @@ func set_glibby_color():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	position = spawnVector
+	var tilemap_x = 0
+
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,11 +43,11 @@ func _process(delta: float) -> void:
 	set_glibby_color()
 	#if one floor all the jumping things reset
 	if is_on_floor():
-		ysp=-ysp * PlayerVariables.spicy_prec / 1.2
+		ysp=-ysp * PlayerVariables.spicy_prec * 1.5
 		if Input.is_action_pressed("jump"):
 			ysp = -(jump_power * (PlayerVariables.sour_prec / 2) + 200)
 	if is_on_ceiling():
-		ysp=-ysp * PlayerVariables.spicy_prec / 1.2
+		ysp=-ysp * PlayerVariables.spicy_prec * 1.5
 	#as long as you keep holding jump and you dont reach the limit the jump power keeps getting apllied
 	
 		
@@ -56,23 +60,35 @@ func _process(delta: float) -> void:
 	velocity = Vector2(xsp,ysp)
 	move_and_slide()
 	
-	if position.x > half_width:
-		tilemap_x -= position.x - half_width
-		position.x = half_width
+	if position.x > screen_width / 2:
+		tilemap_x -= position.x - screen_width / 2
+		position.x = screen_width / 2
 	
-	if position.x < half_width / 3:
-		tilemap_x -= position.x - half_width / 3
-		position.x = half_width / 3
+	if position.x < screen_width / 6:
+		tilemap_x -= position.x - screen_width / 6
+		position.x = screen_width / 6
+		
+	if position.y > screen_height / 1.2:
+		tilemap_y -= position.y - screen_height / 1.2
+		position.y = screen_height / 1.2
+	
+	if position.y < screen_height / 6:
+		tilemap_y -= position.y - screen_height / 6
+		position.y = screen_height / 6
+	
+	$"../TileMapLayer".position.y = tilemap_y
 	
 	$"../TileMapLayer".position.x = tilemap_x
 	
 		
 		
 
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is $"../TileMapLayer":
-		var tile_data = body.get_cell_tile_data(body.local_to_map(body.to_local(position)))
+			
+func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body is TileMapLayer:
+		var coords: Vector2i = body.get_coords_for_body_rid(body_rid)
+		var tile_data: TileData = body.get_cell_tile_data(coords)
 		if tile_data and tile_data.get_custom_data("is_dangerous"):
 			tilemap_x = 0
 			position = spawnVector
+			

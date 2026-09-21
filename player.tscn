@@ -8,7 +8,7 @@
 shader = ExtResource("2_i3pqv")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(51.823586, 59.676296)
+size = Vector2(52.553497, 59.676296)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j08m5"]
 size = Vector2(51.823586, 59.852592)
@@ -23,7 +23,7 @@ scale = Vector2(1.1132811, 1.0589749)
 texture = ExtResource("2_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=538692817]
-position = Vector2(4.0145035, -0.088149086)
+position = Vector2(3.6495485, -0.088149086)
 shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="Area2D" type="Area2D" parent="CollisionShape2D" unique_id=1642236905]
@@ -34,4 +34,4 @@ collision_mask = 2
 position = Vector2(-4.7683716e-07, 0.088149086)
 shape = SubResource("RectangleShape2D_j08m5")
 
-[connection signal="body_entered" from="CollisionShape2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="CollisionShape2D/Area2D" to="." method="_on_area_2d_body_shape_entered"]
