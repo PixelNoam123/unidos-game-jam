@@ -16,10 +16,10 @@ func _process(delta: float) -> void:
 	if len(taste_list) == 0:
 		PlayerVariables.sweet_prec = 0
 		PlayerVariables.sour_prec = 0
-		PlayerVariables.sour_prec = 0
-		PlayerVariables.sour_prec = 0
-		PlayerVariables.sour_prec = 0
-		PlayerVariables.sour_prec = 0
+		PlayerVariables.spicy_prec = 0
+		PlayerVariables.bitter_prec = 0
+		PlayerVariables.salty_prec = 0
+		PlayerVariables.umame_prec = 0
 		visible_sweet_prec = 0
 		visible_sour_prec = 0
 		visible_spicy_prec = 0
