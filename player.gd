@@ -8,8 +8,14 @@ var can_get_jump_power :bool = true
 var friction :float = 0.7
 var last_x:float
 var texture=load("res://glibby-0003.png")
+
 var sweet_color=Color.from_rgba8(174,101,151)
 var sour_color=Color.from_rgba8(182,176,57)
+var spicy_color = Color.from_rgba8(170,60,60)
+var salty_color = Color.from_rgba8(255,255,255)
+var bitter_color = Color.from_rgba8(54,52,72)
+var umame_color = Color.from_rgba8(102,57,49)
+
 var screen_width = DisplayServer.window_get_size().x
 var screen_height = DisplayServer.window_get_size().y
 var tilemap_x = 0
@@ -19,18 +25,19 @@ var area2d_shape_index: int = -1
 
 
 func set_glibby_color():
-	var avg_red = (sweet_color.r*PlayerVariables.sweet_prec) + (sour_color.r*PlayerVariables.sour_prec)
-	var avg_green = (sweet_color.g*PlayerVariables.sweet_prec) + (sour_color.g*PlayerVariables.sour_prec)
-	var avg_blue = (sweet_color.b*PlayerVariables.sweet_prec) + (sour_color.b*PlayerVariables.sour_prec)
+	var avg_red = (sweet_color.r*PlayerVariables.sweet_prec) + (sour_color.r*PlayerVariables.sour_prec) + (spicy_color.r*PlayerVariables.spicy_prec) + (salty_color.r*PlayerVariables.salty_prec) + (bitter_color.r*PlayerVariables.bitter_prec) + (umame_color.r*PlayerVariables.umame_prec)
+	var avg_green = (sweet_color.g*PlayerVariables.sweet_prec) + (sour_color.g*PlayerVariables.sour_prec) + (spicy_color.g*PlayerVariables.spicy_prec) + (salty_color.g*PlayerVariables.salty_prec) + (bitter_color.g*PlayerVariables.bitter_prec) + (umame_color.g*PlayerVariables.umame_prec)
+	var avg_blue = (sweet_color.b*PlayerVariables.sweet_prec) + (sour_color.b*PlayerVariables.sour_prec) + (spicy_color.b*PlayerVariables.spicy_prec) + (salty_color.b*PlayerVariables.salty_prec) + (bitter_color.b*PlayerVariables.bitter_prec) + (umame_color.b*PlayerVariables.umame_prec)
 	var main_color = Color(avg_red,avg_green,avg_blue)
 	var shadow_color = Color(avg_red-0.15,avg_green-0.15,avg_blue-0.15)
 	var img: Image = texture.get_image()
 	for y in range(img.get_height()):
 		for x in range(img.get_width()):
-			if img.get_pixel(x,y)==Color.from_rgba8(216,216,216):
-				img.set_pixel(x,y,main_color)
-			if img.get_pixel(x,y)==Color.from_rgba8(149,149,149):
-				img.set_pixel(x,y,shadow_color)
+			if main_color!=Color.from_rgba8(0,0,0):
+				if img.get_pixel(x,y)==Color.from_rgba8(216,216,216):
+					img.set_pixel(x,y,main_color)
+				if img.get_pixel(x,y)==Color.from_rgba8(149,149,149):
+					img.set_pixel(x,y,shadow_color)
 	$Sprite2D.texture=ImageTexture.create_from_image(img)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
