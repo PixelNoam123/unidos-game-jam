@@ -22,7 +22,7 @@ var tilemap_x = 0
 var tilemap_y = 0
 var spawnVector = Vector2(400,200)
 var area2d_shape_index: int = -1
-
+var touched_slime:bool=false
 
 func set_glibby_color():
 	var avg_red = (sweet_color.r*PlayerVariables.sweet_prec) + (sour_color.r*PlayerVariables.sour_prec) + (spicy_color.r*PlayerVariables.spicy_prec) + (salty_color.r*PlayerVariables.salty_prec) + (bitter_color.r*PlayerVariables.bitter_prec) + (umame_color.r*PlayerVariables.umame_prec)
@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 	set_glibby_color()
 	#if one floor all the jumping things reset
 	if is_on_floor():
-		ysp *= -PlayerVariables.spicy_prec * 0.95
+		#ysp *= -PlayerVariables.spicy_prec * 0.95
 		if Input.is_action_pressed("jump"):
 			ysp = -(jump_power * (PlayerVariables.sour_prec / 1.5) + 200)
 	if is_on_ceiling():
@@ -100,20 +100,42 @@ func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, _body_shape_ind
 			if tile_data.get_custom_data("is_dangerous"):
 				tilemap_x = 0
 				position = spawnVector
-			if tile_data.get_custom_data("bounciness") != 0:
-				if area2d_shape_index != -1:
-					return
-				area2d_shape_index = _local_shape_index
-				var diff_x = player_coords.x - tile_coords.x
-				var diff_y = player_coords.y - tile_coords.y
-				if abs(diff_x) > abs(diff_y):
-					xsp *= -(tile_data.get_custom_data("bounciness") + PlayerVariables.spicy_prec  * 0.3)
-				elif abs(diff_y) > abs(diff_x):
-					ysp *= -(tile_data.get_custom_data("bounciness") + PlayerVariables.spicy_prec  * 0.3)
-				else:
-					xsp *= -(tile_data.get_custom_data("bounciness") + PlayerVariables.spicy_prec  * 0.3)
-					ysp *= -(tile_data.get_custom_data("bounciness") + PlayerVariables.spicy_prec * 0.3)
+		#if tile_data.get_custom_data("bounciness") != 0:
+				#if area2d_shape_index != -1:
+					#return
+				#area2d_shape_index = _local_shape_index
+				#var diff_x = player_coords.x - tile_coords.x
+				#var diff_y = player_coords.y - tile_coords.y
+				#if abs(diff_x) > abs(diff_y):
+					#xsp *= -(tile_data.get_custom_data("bounciness") + PlayerVariables.spicy_prec  * 0.3)
+				#elif abs(diff_y) > abs(diff_x):
+					#ysp *= -(tile_data.get_custom_data("bounciness") + PlayerVariables.spicy_prec  * 0.3)
+				#else:
+					#xsp *= -(tile_data.get_custom_data("bounciness") + PlayerVariables.spicy_prec  * 0.3)
+					#ysp *= -(tile_data.get_custom_data("bounciness") + PlayerVariables.spicy_prec * 0.3)
+			
 					
 
 func _on_area_2d_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	area2d_shape_index = -1
+
+
+func _on_slime_hitbox_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	pass # Replace with function body.
+
+
+func _on_slime_hitbox_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body is TileMapLayer:
+		var tile_coords: Vector2i = body.get_coords_for_body_rid(body_rid)
+		var player_coords: Vector2i = body.local_to_map(body.to_local(global_position))
+		var tile_data: TileData = body.get_cell_tile_data(tile_coords)
+		if tile_data:
+			if tile_data.get_custom_data("bounciness") != 0 and !touched_slime:
+				ysp*=-0.7
+				touched_slime=true
+			
+		
+
+
+func _on_slime_hitbox_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	touched_slime=false
